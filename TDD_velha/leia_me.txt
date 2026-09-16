@@ -1,4 +1,5 @@
-﻿REQUISITOS
+﻿TRABALHO 1 JOGO DA VELHA TDD - TP2 - Lucas Tavares Drumond 231011650
+REQUISITOS
 
 Linux, g++, make, Catch, cpplint, cppcheck, gcov, valgrind e gdb.
 
