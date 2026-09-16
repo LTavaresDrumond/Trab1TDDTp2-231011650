@@ -1,3 +1,5 @@
+# Compatibilidade com o Catch antigo: evita o uso de SIGSTKSZ no Linux atual.
+# A macro nao altera a logica dos testes nem do jogo da velha.
 all: testa_velha.cpp   velha.cpp velha.hpp velha.o
 	g++ -std=c++11 -Wall -DCATCH_CONFIG_NO_POSIX_SIGNALS velha.o testa_velha.cpp -o testa_velha
 	./testa_velha
