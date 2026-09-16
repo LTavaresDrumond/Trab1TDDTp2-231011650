@@ -1,6 +1,90 @@
-﻿com o g++  make e demais programas instalados 
-com todos os arquivos no mesmo diretório
-digite "make" neste diretório 
-para cada regra você pode digitar make e nome da regra ex. make cppcheck
+﻿TRABALHO 1 - TDD - JOGO DA VELHA
 
-fazer um git commit para cada teste ou código adicionado 
+REQUISITOS
+
+Linux, g++, make, Catch, cpplint, cppcheck, gcov, valgrind e gdb.
+
+Os arquivos do projeto devem permanecer no mesmo diretorio:
+
+	velha.cpp
+	velha.hpp
+	testa_velha.cpp
+	catch.hpp
+	Makefile
+
+COMPILACAO E TESTES
+
+Entre no diretorio do projeto:
+
+	cd TDD_velha
+
+Para compilar e executar todos os testes:
+
+	make all
+
+Ou, diretamente:
+
+	make test
+
+Os testes verificam os seguintes retornos de VerificaVelha:
+
+	1   vencedor X
+	2   vencedor O
+	0   empate
+   -1   partida indefinida
+   -2   partida impossivel
+
+OUTRAS REGRAS DO MAKEFILE
+
+	make compile       compila o executavel
+	make velha.o       compila o modulo velha.cpp
+	make testa_velha   gera o executavel de testes
+	make cpplint       verifica o estilo do codigo
+	make cppcheck      executa a analise estatica
+	make gcov          executa os testes e calcula a cobertura
+	make valgrind      verifica erros e vazamentos de memoria
+	make debug         compila com -g e inicia o GDB
+	make clean         remove arquivos gerados
+
+QUALIDADE
+
+O projeto deve ser verificado com:
+
+	make cpplint
+	make cppcheck
+	make gcov
+	make valgrind
+
+A cobertura esperada e de pelo menos 80 por cento. O Valgrind deve
+informar zero erros e nenhum vazamento de memoria.
+
+COMPATIBILIDADE DO CATCH
+
+O Catch fornecido no projeto e uma versao antiga. Nos comandos que
+compilam os testes, a macro -DCATCH_CONFIG_NO_POSIX_SIGNALS evita uma
+incompatibilidade do Catch antigo com o Linux atual. Essa macro nao
+altera a logica do jogo nem dos testes.
+
+DEBUG COM GDB
+
+Para depurar o executavel:
+
+	make clean
+	make testa_velha
+	gdb testa_velha
+
+Dentro do GDB, alguns comandos uteis sao:
+
+	break VerificaVelha
+	run
+	next
+	continue
+	quit
+
+GIT
+
+O diretorio .git deve ser mantido junto com o trabalho. O desenvolvimento
+foi realizado com commits separados para testes, implementacoes e
+refatoracoes. Para consultar o historico:
+
+	git log --oneline --decorate --graph
