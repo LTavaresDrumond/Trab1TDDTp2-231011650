@@ -26,4 +26,13 @@ TEST_CASE("Testa vitoria do O", "[single-file]") {
     REQUIRE(VerificaVelha(teste2) == 2);
 }
 
+TEST_CASE("Testa empate", "[single-file]") {
+    int teste3[3][3] = {
+        {1, 2, 1},
+        {2, 1, 2},
+        {2, 1, 2}
+    };
+    REQUIRE(VerificaVelha(teste3) == 0);
+}
+
 
