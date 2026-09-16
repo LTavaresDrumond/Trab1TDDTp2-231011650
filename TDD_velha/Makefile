@@ -23,6 +23,7 @@ gcov: testa_velha.cpp   velha.cpp velha.hpp
 	g++ -std=c++11 -Wall -fprofile-arcs -ftest-coverage -DCATCH_CONFIG_NO_POSIX_SIGNALS velha.o testa_velha.cpp -o testa_velha
 	./testa_velha
 	gcov velha.cpp
+	rm -f velha.o testa_velha
 	 
 debug: testa_velha.cpp   velha.cpp velha.hpp 
 	g++ -std=c++11 -Wall -g -c velha.cpp
