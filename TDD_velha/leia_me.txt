@@ -1,6 +1,4 @@
-﻿TRABALHO 1 - TDD - JOGO DA VELHA
-
-REQUISITOS
+﻿REQUISITOS
 
 Linux, g++, make, Catch, cpplint, cppcheck, gcov, valgrind e gdb.
 
@@ -80,11 +78,3 @@ Dentro do GDB, alguns comandos uteis sao:
 	next
 	continue
 	quit
-
-GIT
-
-O diretorio .git deve ser mantido junto com o trabalho. O desenvolvimento
-foi realizado com commits separados para testes, implementacoes e
-refatoracoes. Para consultar o historico:
-
-	git log --oneline --decorate --graph
