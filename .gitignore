@@ -1,0 +1,6 @@
+*.zip
+*.pdf
+TDD_velha/*.o
+TDD_velha/*.gc*
+TDD_velha/testa_velha
+TDD_velha/valgrind.rpt
