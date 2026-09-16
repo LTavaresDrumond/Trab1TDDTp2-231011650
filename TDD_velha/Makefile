@@ -16,13 +16,13 @@ test: testa_velha
 	./testa_velha
 	
 cpplint: testa_velha.cpp   velha.cpp velha.hpp
-	cpplint   --exclude=catch.hpp  *.*
+	cpplint --exclude=catch.hpp --filter=-legal/copyright,-build/include_subdir *.cpp *.hpp
 	
 gcov: testa_velha.cpp   velha.cpp velha.hpp 
 	g++ -std=c++11 -Wall -fprofile-arcs -ftest-coverage -c velha.cpp
 	g++ -std=c++11 -Wall -fprofile-arcs -ftest-coverage -DCATCH_CONFIG_NO_POSIX_SIGNALS velha.o testa_velha.cpp -o testa_velha
 	./testa_velha
-	gcov *.cpp	
+	gcov velha.cpp
 	 
 debug: testa_velha.cpp   velha.cpp velha.hpp 
 	g++ -std=c++11 -Wall -g -c velha.cpp
@@ -31,10 +31,10 @@ debug: testa_velha.cpp   velha.cpp velha.hpp
 	
 	
 cppcheck: testa_velha.cpp   velha.cpp velha.hpp
-	cppcheck  --enable=warning .
+	cppcheck --enable=warning --suppress='*:catch.hpp' .
 
 valgrind: testa_velha
-	valgrind --leak-check=yes --log-file=valgrind.rpt testa_velha
+	valgrind --leak-check=yes --log-file=valgrind.rpt ./testa_velha
 
 
 clean:
